@@ -62,13 +62,38 @@ let keyboardPress = document.addEventListener('keydown', (event) => {
 });
 
 // ######################
-// ##     FUNCTIONS    ##
+// ##    FUNCTIONS     ##
 // ######################
 
 function clearScreen(){
+    gameScreen.style.lineHeight = '1';
     gameScreen.style.backgroundColor = 'rgb(11, 48, 13)';
     while (gameScreen.firstChild)
         gameScreen.firstChild.remove();
+}
+
+function loadInitialPage(){
+    clearScreen();
+
+    textP = document.createElement('p');
+    textP.classList.add('initial-page-text');
+    textP.innerHTML = 'Collect the berrys to make the snake grow. If you touch the screen edges or yourself you will lose. Use arrow keys or WASD to control.';
+    title = document.createElement('h1');
+    title.classList.add('initial-page-title');
+    title.innerHTML = 'Snake'
+    buttonPlay = document.createElement('button');
+    buttonPlay.innerHTML = "Play!";
+    buttonPlay.classList.add('screen-buttons');
+    divButton = document.createElement('div');
+    divButton.classList.add('display-buttons');
+    divButton.appendChild(buttonPlay);
+    gameScreen.appendChild(title);
+    gameScreen.appendChild(textP);
+    gameScreen.appendChild(divButton);
+
+    buttonPlay.onclick = () => {
+        initializeGame();
+    }
 }
 
 function loadGameOverScreen(){
@@ -91,8 +116,8 @@ function loadGameOverScreen(){
     b2 = document.createElement('button');
     b1.innerHTML = 'Try Again!'
     b2.innerHTML = 'Initial Page'
-    b1.classList.add('gameover-buttons');
-    b2.classList.add('gameover-buttons');
+    b1.classList.add('screen-buttons');
+    b2.classList.add('screen-buttons');
     buttonsDiv.appendChild(b1);
     buttonsDiv.appendChild(b2);
     gameScreen.appendChild(gameOverText);
@@ -101,6 +126,10 @@ function loadGameOverScreen(){
 
     b1.onclick = () => {
         initializeGame();
+    }
+
+    b2.onclick = () => {
+        loadInitialPage();
     }
 }
 
@@ -147,6 +176,7 @@ function paintRandomSpot(previousEl){
 
 function initializeGame(){
     clearScreen();
+    gameScreen.style.lineHeight = '0';
     initialText = document.createElement('h1');
     initialText.innerHTML = 'Press any key';
     initialText.classList.add('press-any-key')
@@ -188,8 +218,7 @@ function checkGameOver(){
     return false;
 }
 
-initializeGame();
-
+loadInitialPage();
 
 // MAIN GAME CODE
 var main = setInterval(() => {
@@ -217,6 +246,5 @@ var main = setInterval(() => {
     }
 
     document.querySelector(`div[data-column="${snake[0].x}"][data-row="${snake[0].y}"]`).classList.toggle('bg-body');
-    
     
 }, 100)

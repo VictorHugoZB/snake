@@ -1,0 +1,127 @@
+@keyframes bigAndSmall {
+    0% {
+        font-size: 40px;
+    }
+    50% {
+        font-size: 37px;
+    }
+    100% {
+        font-size: 40px;
+    }
+}
+
+@keyframes smallToBig{
+    0% {
+        font-size: 5px;
+    }
+    100% {
+        font-size: 70px;
+    }
+}
+
+@keyframes smallToBigP{
+    0% {
+        font-size: 5px;
+    }
+    100% {
+        font-size: 20px;
+    }
+}
+
+@keyframes linGradAnimation{
+    0% {
+        background-position:10% 0%;
+    }
+    50% {
+        background-position:91% 70%;
+    }
+    100% {
+        background-position:10% 0%
+    }
+}
+
+body{
+    background: linear-gradient(60deg, rgb(61, 6, 6),rgb(43, 3, 36), rgb(5, 4, 44));
+    background-size: 200% 200%;
+    animation: linGradAnimation 20s infinite;
+    animation-direction: alternate;
+}
+.inGameSquares{
+    display:inline-block;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    z-index: 0;
+    background-color: rgb(11, 48, 13);
+}
+.bg-body{
+    background: radial-gradient(transparent 0, transparent 80%, rgb(11, 48, 13) 90%);
+}
+.bg-green{
+    background-color: green;
+}
+.bg-strawberry{
+    background-image: url('../imgs/strawberry.png');
+    background-size: contain;
+}
+.press-any-key{
+    position: absolute;
+    width: 100%;
+    height: 3.7%;
+    padding-top: 25px;
+    margin: 0;
+    text-align: center;
+    color: rgb(54, 145, 219);
+    text-transform: uppercase;
+    font-size: 40px;
+    animation: bigAndSmall 1s infinite;
+    background-color: rgb(11, 48, 13);
+}
+.game-over-text{
+    position: absolute;
+    width: 100%;
+    margin-top: 100px;
+    text-align: center;
+    color: rgb(236, 4, 4);
+    text-transform: uppercase;
+    font-size: 70px;
+    animation: smallToBig 1s;
+}
+.game-over-p{
+    font-size: 0;
+    position: absolute;
+    bottom: 190px;
+    width: 100%;
+    text-align: center;
+    animation-name: smallToBigP;
+    animation-duration: 1s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+}
+.display-buttons{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+    position: absolute;
+    bottom: 70px;
+}
+.gameover-buttons{
+    width: 25%;
+    height: 50px;
+    font-size: 20px;
+}
+
+#game-screen{
+    width: 800px;
+    height: 400px;
+    margin: auto;
+    background-color: rgb(11, 48, 13);
+    line-height: 0;
+    margin-top: 100px;
+    position: relative;
+    border: 2px rgb(133, 133, 133) solid;
+    box-shadow: 0px 0px 15px black;
+}
+
+

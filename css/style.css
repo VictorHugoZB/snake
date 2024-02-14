@@ -10,7 +10,7 @@
     }
 }
 
-@keyframes smallToBig{
+@keyframes smallToBig {
     0% {
         font-size: 5px;
     }
@@ -19,7 +19,7 @@
     }
 }
 
-@keyframes smallToBigP{
+@keyframes smallToBigP {
     0% {
         font-size: 5px;
     }
@@ -28,7 +28,7 @@
     }
 }
 
-@keyframes linGradAnimation{
+@keyframes linGradAnimation {
     0% {
         background-position:10% 0%;
     }
@@ -45,6 +45,8 @@ body{
     background-size: 200% 200%;
     animation: linGradAnimation 20s infinite;
     animation-direction: alternate;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
 }
 .initial-page-title{
     text-transform: uppercase;
@@ -131,6 +133,7 @@ body{
     font-weight: bold;
     background-color: rgb(255, 255, 255);
     transition: all .3s;
+    cursor: pointer;
 }
 .screen-buttons:hover{
     background-color: rgb(255, 255, 255);
@@ -150,3 +153,68 @@ body{
     box-shadow: 0px 0px 15px rgb(0, 0, 0);
 }
 
+.white {
+    color: white;
+    border-radius: 50%;
+}
+
+.icon {
+    font-size: 4rem;
+    color: white;
+    cursor: pointer;
+    transition: all .3s;
+    border-radius: 50%;
+}
+
+.icon:hover {
+    box-shadow: 0px 0px 10px white;
+}
+
+.guerrilla {
+    font-family: "Protest Guerrilla", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 1.5px;
+}
+
+.content-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 32px;
+}
+
+.text-container {
+    display: flex;
+    width: 600px;
+    justify-content: space-evenly;
+}
+
+.dev {
+    font-size: large;
+}
+
+.border-bottom {
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.border-bottom::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background-color: white;
+    width: 100%;
+    transform: scaleX(0);
+    margin-top: 5px;
+    transition: transform .5s ease-in-out;
+    transform-origin: bottom right;
+}
+
+.border-bottom:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
